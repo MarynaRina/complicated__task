@@ -2,7 +2,7 @@
 
 let lang = prompt('Выберите язык');
 
-// A
+A
 if (lang === 'ru') {
     console.log(`Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье`);
 } else if (lang === 'en') {
@@ -22,11 +22,10 @@ switch (lang) {
 }
 
 // C
-const allLang = {
-    'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
-    'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-};
-console.log(allLang[lang]);
+const allLang = [ { 'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] }, 
+                  { 'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] } ];
+console.log((lang === 'ru') ? allLang[0] : (lang === 'en') ? allLang[1] : 'Выберите язык');
+
 
 let namePerson = prompt('Введите имя');
 console.log((namePerson === 'Максим') ? 'Преподаватель' : (namePerson ==='Артём') ? 'Директор' : 'Студент');
