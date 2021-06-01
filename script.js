@@ -22,8 +22,10 @@ switch (lang) {
 }
 
 // C
-const allLang = [ { 'ru': ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'] }, 
-                  { 'en': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] } ];
+const allLang = [
+                ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'], 
+                ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+];
 console.log((lang === 'ru') ? allLang[0] : (lang === 'en') ? allLang[1] : 'Выберите язык');
 
 
