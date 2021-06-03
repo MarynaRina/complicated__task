@@ -1,33 +1,59 @@
-"use strict";
+'use strict';
 
-let arr = ['23423', '97845', '32346', '54357', '46896', '64783', '134511'];
-
-//  1.
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i].startsWith('2') || arr[i].startsWith('4')) {
-        console.log(arr[i]);
-    }
-}
-
-//  2. 
-const num = function(elem) {
-    let arr = [];
-    if (elem !== 1) {
-        arr.push(1);
-        for (let n = 2; n * n <= elem; n++) {
-            if (elem % n === 0) {
-                arr.push(n);
-            }
-        }
-    }
-    arr.push(elem);
-    return arr;
+// Рандомное число
+const randomNum = function(maxNum) {
+    return Math.floor(Math.random() * Math.floor(maxNum));
 };
 
-for (let i = 2; i <= 100; i++) {
-    const n = num(i);
-    if (n.length <= 2) {
-        console.log(`${i}: Делители этого числа: ${num(i).join(', ')}`);
-    }
-}
+// Число ли это?
+let isNumber = function(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+};
 
+ 
+const start = function() {
+    let rNum = randomNum(100);
+    // Начало игры 
+    let attempt = 10;
+    const game = function() {
+        attempt--;
+        if (attempt < 0) {
+            if (confirm('Попытки закончились, хотите сыграть еще?')) {
+                start();
+            } else {
+                alert('Игра окончена');
+                return;
+            }
+            } else {
+                const strNum = prompt('Угадай число от 1 до 100');
+                if (strNum === null) {
+                    alert('Игра окончена');
+                    return;
+                }
+                if (isNumber(strNum)) {
+                const num = +strNum;
+                if (num > rNum) {
+                    alert('Загаданное число меньше');
+                    game();
+                } else if (num < rNum) {
+                    alert('Загаданное число больше');
+                    game();
+                } else {
+                if (confirm('Поздравляю, Вы угадали. Хотите сыграть еще раз?')) {
+                    start();
+                } else {
+                    alert('Конец игры! Возвращайтесь еще.');
+                    return;
+                }
+                }
+                } else {
+                    alert('Введи число!');
+                    game();
+                }
+            }
+    };
+    game();
+};
+
+// Запуск игры
+start();
