@@ -53,3 +53,4 @@ setInterval(showTime, 1000);
 showTime();
 document.body.style.margin = '400px 600px';
 document.body.style.fontSize = '20px';
+document.body.appendChild(elem).style.margin = '10px 200px';
